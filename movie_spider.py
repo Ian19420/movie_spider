@@ -26,15 +26,19 @@ for item in items:
     with open(os.path.join(destDir, cname) + ".jpg", "wb") as f:
         for diskStorage in photo.iter_content(10240):
             f.write(diskStorage)
+    forecast = item.find("a", class_ = "btn_s_vedio gabtn")
+    forecast_url = forecast["href"]
+
 
     num += 1
     print('新片編號 : ', num)
     print('中文片名 : ', cname)
     print('英文片名 : ', ename)
+    print("上映日期 ： ", time[0])
     print("圖片網址 ： ", photo_url)
     print('期待度 : ', level)
     print("內容摘要 ： ", txt)
-    print("上映日期 ： ", time[0])
+    print("預告片 : ", forecast_url)
     print()
 
 
