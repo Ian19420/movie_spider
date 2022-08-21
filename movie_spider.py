@@ -27,7 +27,10 @@ for item in items:
         for diskStorage in photo.iter_content(10240):
             f.write(diskStorage)
     forecast = item.find("a", class_ = "btn_s_vedio gabtn")
-    forecast_url = forecast["href"]
+    if forecast == None:
+        forecast_url = "暫無"
+    else:
+        forecast_url = forecast["href"]
 
 
     num += 1
